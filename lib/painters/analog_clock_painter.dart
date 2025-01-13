@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
@@ -12,10 +10,10 @@ class AnalogClockPainter extends CustomPainter {
   }) : super(repaint: controller);
   @override
   void paint(Canvas canvas, Size size) {
-    print("Hmm");
+    // print("Hmm");
     double clockRadius = math.min(size.width, size.height) / 2;
     canvas.translate(size.width / 2, size.height / 2);
-    print(clockRadius);
+    // print(clockRadius);
     canvas.drawCircle(Offset.zero, 5, Paint()..color=Colors.black..style=PaintingStyle.fill);
 
     Paint hourPaint = Paint()
