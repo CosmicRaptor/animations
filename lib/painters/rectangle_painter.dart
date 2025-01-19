@@ -34,7 +34,7 @@ class RectanglePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.translate(size.width/2, size.height/2);
+    canvas.translate(size.width / 2, size.height / 2);
     const stemTop = Offset.zero;
     const stemBottom = Offset(0, 400);
 
@@ -62,15 +62,21 @@ class RectanglePainter extends CustomPainter {
     canvas.translate(0, 200);
     canvas.rotate(math.pi / 4);
     canvas.drawOval(
-      Rect.fromCenter(center: Offset(stemTop.dx + 85, stemTop.dy), width: 50, height: 200 * leafGrowthTween.value),
+      Rect.fromCenter(
+          center: Offset(stemTop.dx + 85, stemTop.dy),
+          width: 50,
+          height: 200 * leafGrowthTween.value),
       Paint()..color = Colors.green,
     );
     canvas.restore();
     canvas.save();
     canvas.translate(0, 200);
-    canvas.rotate(3*math.pi / 4);
+    canvas.rotate(3 * math.pi / 4);
     canvas.drawOval(
-      Rect.fromCenter(center: Offset(stemTop.dx + 85, stemTop.dy), width: 50, height: 200 * leafGrowthTween.value),
+      Rect.fromCenter(
+          center: Offset(stemTop.dx + 85, stemTop.dy),
+          width: 50,
+          height: 200 * leafGrowthTween.value),
       Paint()..color = Colors.green,
     );
     canvas.restore();

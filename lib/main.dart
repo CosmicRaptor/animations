@@ -1,4 +1,5 @@
 import 'package:animations/painters/analog_clock_painter.dart';
+import 'package:animations/painters/raw_seven_segment.dart';
 import 'package:animations/painters/rectangle_painter.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +41,10 @@ class _MyHomePageState extends State<MyHomePage>
       case 0:
         return RectanglePainter(controller: controller);
       case 1:
-        return AnalogClockPainter(controller: controller, datetime: DateTime.now());
+        return AnalogClockPainter(
+            controller: controller, datetime: DateTime.now());
+      case 2:
+        return RawSevenSegment(controller: controller);
       default:
         throw Exception("Invalid index");
     }
@@ -70,6 +74,10 @@ class _MyHomePageState extends State<MyHomePage>
             BottomNavigationBarItem(
               icon: Icon(Icons.timer),
               label: "Clock",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.numbers),
+              label: "Seven segment display",
             ),
           ],
           onTap: (val) {

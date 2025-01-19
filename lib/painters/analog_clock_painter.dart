@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -14,7 +13,12 @@ class AnalogClockPainter extends CustomPainter {
     double clockRadius = math.min(size.width, size.height) / 2;
     canvas.translate(size.width / 2, size.height / 2);
     // print(clockRadius);
-    canvas.drawCircle(Offset.zero, 5, Paint()..color=Colors.black..style=PaintingStyle.fill);
+    canvas.drawCircle(
+        Offset.zero,
+        5,
+        Paint()
+          ..color = Colors.black
+          ..style = PaintingStyle.fill);
 
     Paint hourPaint = Paint()
       ..color = Colors.black
@@ -36,12 +40,11 @@ class AnalogClockPainter extends CustomPainter {
     );
 
     //lines
-    for(int i = 0; i < 60; i++){
+    for (int i = 0; i < 60; i++) {
       double angle = (i * math.pi / 30);
       double outerRadius = clockRadius;
-      double innerRadius = (i % 5 == 0)
-          ? clockRadius * 0.85
-          : clockRadius * 0.9;
+      double innerRadius =
+          (i % 5 == 0) ? clockRadius * 0.85 : clockRadius * 0.9;
 
       Offset start = Offset(
         innerRadius * math.cos(angle),
@@ -62,8 +65,12 @@ class AnalogClockPainter extends CustomPainter {
     final minuteHandLength = clockRadius * 0.7;
     final hourHandLength = clockRadius * 0.5;
     final secondAngle = (2 * math.pi / 60) * second - math.pi / 2;
-    final minuteAngle = (2 * math.pi / 60) * minute + (2 * math.pi / (60 * 60)) * second - math.pi / 2;
-    final hourAngle = (2 * math.pi / 12) * hour + (2 * math.pi / (12 * 60)) * minute - math.pi / 2;
+    final minuteAngle = (2 * math.pi / 60) * minute +
+        (2 * math.pi / (60 * 60)) * second -
+        math.pi / 2;
+    final hourAngle = (2 * math.pi / 12) * hour +
+        (2 * math.pi / (12 * 60)) * minute -
+        math.pi / 2;
     // Second hand
     final secondHand = Offset(
       Offset.zero.dx + secondHandLength * math.cos(secondAngle),
