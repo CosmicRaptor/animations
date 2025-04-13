@@ -1,4 +1,5 @@
 import 'package:animations/painters/analog_clock_painter.dart';
+import 'package:animations/painters/network_painter.dart';
 import 'package:animations/painters/raw_seven_segment.dart';
 import 'package:animations/painters/rectangle_painter.dart';
 import 'package:flutter/material.dart';
@@ -103,8 +104,16 @@ class _MyHomePageState extends State<MyHomePage>
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.refresh),
         onPressed: () {
-          controller.reset();
-          controller.forward();
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) {
+              return Container(
+                  color: Colors.black,
+                  child: const ParticleNetwork(
+                    numParticles: 500,
+                    speed: 1.0,
+                  ));
+            }),
+          );
         },
       ),
     );
